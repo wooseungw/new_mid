@@ -1,3 +1,5 @@
+## streamlit 웹앱 URL: https://newmid-cspuaempw6jmke2bikh8km.streamlit.app/
+## Github: https://github.com/wooseungw/new_mid
 import streamlit as st
 import openai
 from datetime import datetime
@@ -28,6 +30,7 @@ with st.sidebar.title("Chatbot"):
 
 col1, col2 = st.columns([1,1])
 with col1:
+    st.header("입력하기")
     user_input = st.text_input("User Input")
     if user_input:
         st.session_state["chat"] =  st.session_state["chat"]+ [("user",now, user_input)]
@@ -37,7 +40,7 @@ with col1:
         st.session_state["chat"] =  st.session_state["chat"]+ [("bot", now, response)]
 
 with col2:
-    
+    st.header("채팅 기록")
     for sender, time,message in st.session_state["chat"]:
 
         if sender == "user":
